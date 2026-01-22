@@ -90,6 +90,15 @@ jobs:
           echo "PLAN_DIR=/dev/shm/tfplan" >> "$GITHUB_ENV"
           echo "PLAN_BIN=/dev/shm/tfplan/tfplan.bin" >> "$GITHUB_ENV"
 
+      - name: Terraform change backend to local
+        run: |
+          cd ${{ inputs.module_path }}
+          cat <<EOF > backend.tf
+          terraform {
+            backend "local" {}
+          }
+          EOF
+
      # - name: Terraform fmt
      #   if: always()
      #   working-directory: ${{ env.MODULE_PATH }}
