@@ -20,11 +20,11 @@ on:
         default: false
         type: boolean
     secrets:
-      SCW_TF_CI_ACCESS_KEY: { required: true }
-      SCW_TF_CI_SECRET_KEY: { required: true }
-      SCW_DEFAULT_PROJECT_ID: { required: true }
-      SCW_ORGANIZATION_ID: { required: true }
-      AGE_PRIVATE_KEY: { required: true }
+      SCW_TF_CI_ACCESS_KEY: { required: false }
+      SCW_TF_CI_SECRET_KEY: { required: false }
+      SCW_DEFAULT_PROJECT_ID: { required: false }
+      SCW_ORGANIZATION_ID: { required: false }
+      AGE_PRIVATE_KEY: { required: false }
 
 permissions:
   contents: read
