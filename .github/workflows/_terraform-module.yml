@@ -93,6 +93,7 @@ jobs:
       - name: Terraform change backend to local
         run: |
           cd ${{ inputs.module_path }}
+          find . -maxdepth 1 -type f -name "*.tf" ! -name "main.tf" -delete # delete all except main.tf
           cat <<EOF > backend.tf
           terraform {
             backend "local" {}
