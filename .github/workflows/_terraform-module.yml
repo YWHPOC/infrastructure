@@ -113,6 +113,9 @@ jobs:
      #     terraform init -reconfigure -input=false -lockfile=readonly
      #     terraform validate -no-color
 
+      - name: Terraform Init
+        run: cd ${{ inputs.module_path }} && terraform init
+
       - name: Terraform plan
         if: ${{ success() && !inputs.apply }}
         working-directory: ${{ env.MODULE_PATH }}
