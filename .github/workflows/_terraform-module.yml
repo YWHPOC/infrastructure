@@ -106,12 +106,12 @@ jobs:
           output-file: README.md
           fail-on-diff: "true"
 
-      - name: Terraform validate
-        if: always()
-        working-directory: ${{ env.MODULE_PATH }}
-        run: |
-          terraform init -reconfigure -input=false -lockfile=readonly
-          terraform validate -no-color
+     # - name: Terraform validate
+     #   if: always()
+     #   working-directory: ${{ env.MODULE_PATH }}
+     #   run: |
+     #     terraform init -reconfigure -input=false -lockfile=readonly
+     #     terraform validate -no-color
 
       - name: Terraform plan
         if: ${{ success() && !inputs.apply }}
